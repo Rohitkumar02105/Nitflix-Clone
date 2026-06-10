@@ -139,10 +139,10 @@ function cardTemplate(title) {
   button.dataset.id = title.id;
   button.innerHTML = `
     <img src="${title.image}" alt="${title.name} poster" loading="lazy">
-    ${savedTitles.has(title.id) ? '<span class="save-badge" aria-label="Saved">âœ“</span>' : ""}
+    ${savedTitles.has(title.id) ? '<span class="save-badge" aria-label="Saved">&#10003;</span>' : ""}
     <span class="card-info">
       <h3>${title.name}</h3>
-      <p>${title.rating} â€¢ ${title.year} â€¢ ${title.tag}</p>
+      <p>${title.rating} &bull; ${title.year} &bull; ${title.tag}</p>
     </span>
   `;
   button.addEventListener("click", () => openPreview(title));
@@ -175,7 +175,7 @@ function openPreview(title) {
   activeTitle = title;
   modalImage.src = title.image;
   modalImage.alt = `${title.name} preview`;
-  modalMeta.textContent = `${title.rating} â€¢ ${title.year} â€¢ ${title.tag}`;
+  modalMeta.textContent = `${title.rating} | ${title.year} | ${title.tag}`;
   modalTitle.textContent = title.name;
   modalDescription.textContent = title.description;
   saveCurrentButton.textContent = savedTitles.has(title.id) ? "Saved" : "Save";
